@@ -103,6 +103,66 @@ body {
     animation-delay: 987ms;
 }
 
+.shooting_star:nth-child(6) {
+    top: 20%;
+    left: -180px;
+    animation-delay: 3500ms;
+}
+
+.shooting_star:nth-child(7) {
+    top: 40%;
+    left: -130px;
+    animation-delay: 2000ms;
+}
+
+.shooting_star:nth-child(8) {
+    top: 60%;
+    left: -220px;
+    animation-delay: 6000ms;
+}
+
+.shooting_star:nth-child(9) {
+    top: 80%;
+    left: -170px;
+    animation-delay: 4500ms;
+}
+
+.shooting_star:nth-child(10) {
+    top: 5%;
+    left: -100px;
+    animation-delay: 7000ms;
+}
+
+.shooting_star:nth-child(11) {
+    top: 15%;
+    left: -240px;
+    animation-delay: 1800ms;
+}
+
+.shooting_star:nth-child(12) {
+    top: 35%;
+    left: -190px;
+    animation-delay: 3900ms;
+}
+
+.shooting_star:nth-child(13) {
+    top: 55%;
+    left: -140px;
+    animation-delay: 6500ms;
+}
+
+.shooting_star:nth-child(14) {
+    top: 75%;
+    left: -210px;
+    animation-delay: 800ms;
+}
+
+.shooting_star:nth-child(15) {
+    top: 85%;
+    left: -160px;
+    animation-delay: 5200ms;
+}
+
 
 .container {
     background-color: rgba(255, 255, 255, 0.9);
