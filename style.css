@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    background: #000; /* Simple black background */
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -10,6 +10,54 @@ body {
     align-items: center;
 }
 
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* --- Nebula Effect --- */
+.nebula {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.nebula::before, .nebula::after {
+    content: '';
+    position: absolute;
+    width: 120vmax;
+    height: 120vmax;
+    background-size: cover;
+    animation: move-nebula 50s linear infinite;
+}
+
+.nebula::before {
+    background: radial-gradient(circle, rgba(131, 58, 180, 0.3) 0%, rgba(253, 29, 29, 0.2) 50%, rgba(252, 176, 69, 0) 70%);
+    border-radius: 50%;
+    top: -50%;
+    left: -50%;
+}
+
+.nebula::after {
+    background: radial-gradient(circle, rgba(29, 253, 180, 0.3) 0%, rgba(69, 252, 241, 0.2) 50%, rgba(252, 176, 69, 0) 70%);
+    border-radius: 50%;
+    bottom: -50%;
+    right: -50%;
+    animation-direction: reverse;
+}
+
+@keyframes move-nebula {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* --- Stars (existing) --- */
 .stars {
     position: absolute;
     top: 0;
@@ -20,7 +68,7 @@ body {
     height: 100%;
     display: block;
     background: url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-    z-index: 0;
+    z-index: 1;
 }
 
 @keyframes move-twink-back {
@@ -28,28 +76,53 @@ body {
     to {background-position:-10000px 5000px;}
 }
 
-.twinkling{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  display:block;
-  background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-  z-index: 1;
-  animation:move-twink-back 200s linear infinite;
+.twinkling {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    display: block;
+    background: transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    z-index: 2;
+    animation: move-twink-back 200s linear infinite;
 }
 
-/* Shooting Star CSS */
-.shooting-stars {
+/* --- Planets --- */
+.planets {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 3;
+}
+
+.planet-1 {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 30% 30%, #ffcc66, #d4a373 80%);
+    border-radius: 50%;
+    box-shadow: -10px -10px 20px rgba(0,0,0,0.5) inset, 0 0 20px #ffcc66;
+}
+
+.moon-1 {
+    position: absolute;
+    top: 25%;
+    left: 22%;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, #f5f3f4, #939192 80%);
+    border-radius: 50%;
+    box-shadow: -5px -5px 10px rgba(0,0,0,0.5) inset;
+}
+
+
+/* --- Shooting Stars (existing) --- */
+.shooting-stars {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 4;
     overflow: hidden;
 }
 
@@ -73,106 +146,34 @@ body {
     100% { transform: translateX(400px); }
 }
 
-.shooting_star:nth-child(1) {
-    top: 10%;
-    left: -200px;
-    animation-delay: 2999ms;
-}
+.shooting_star:nth-child(1) { top: 10%; left: -200px; animation-delay: 2999ms; }
+.shooting_star:nth-child(2) { top: 30%; left: -150px; animation-delay: 4321ms; }
+.shooting_star:nth-child(3) { top: 50%; left: -100px; animation-delay: 1234ms; }
+.shooting_star:nth-child(4) { top: 70%; left: -250px; animation-delay: 5678ms; }
+.shooting_star:nth-child(5) { top: 90%; left: -120px; animation-delay: 987ms; }
+.shooting_star:nth-child(6) { top: 20%; left: -180px; animation-delay: 3500ms; }
+.shooting_star:nth-child(7) { top: 40%; left: -130px; animation-delay: 2000ms; }
+.shooting_star:nth-child(8) { top: 60%; left: -220px; animation-delay: 6000ms; }
+.shooting_star:nth-child(9) { top: 80%; left: -170px; animation-delay: 4500ms; }
+.shooting_star:nth-child(10) { top: 5%; left: -100px; animation-delay: 7000ms; }
+.shooting_star:nth-child(11) { top: 15%; left: -240px; animation-delay: 1800ms; }
+.shooting_star:nth-child(12) { top: 35%; left: -190px; animation-delay: 3900ms; }
+.shooting_star:nth-child(13) { top: 55%; left: -140px; animation-delay: 6500ms; }
+.shooting_star:nth-child(14) { top: 75%; left: -210px; animation-delay: 800ms; }
+.shooting_star:nth-child(15) { top: 85%; left: -160px; animation-delay: 5200ms; }
 
-.shooting_star:nth-child(2) {
-    top: 30%;
-    left: -150px;
-    animation-delay: 4321ms;
-}
-
-.shooting_star:nth-child(3) {
-    top: 50%;
-    left: -100px;
-    animation-delay: 1234ms;
-}
-
-.shooting_star:nth-child(4) {
-    top: 70%;
-    left: -250px;
-    animation-delay: 5678ms;
-}
-
-.shooting_star:nth-child(5) {
-    top: 90%;
-    left: -120px;
-    animation-delay: 987ms;
-}
-
-.shooting_star:nth-child(6) {
-    top: 20%;
-    left: -180px;
-    animation-delay: 3500ms;
-}
-
-.shooting_star:nth-child(7) {
-    top: 40%;
-    left: -130px;
-    animation-delay: 2000ms;
-}
-
-.shooting_star:nth-child(8) {
-    top: 60%;
-    left: -220px;
-    animation-delay: 6000ms;
-}
-
-.shooting_star:nth-child(9) {
-    top: 80%;
-    left: -170px;
-    animation-delay: 4500ms;
-}
-
-.shooting_star:nth-child(10) {
-    top: 5%;
-    left: -100px;
-    animation-delay: 7000ms;
-}
-
-.shooting_star:nth-child(11) {
-    top: 15%;
-    left: -240px;
-    animation-delay: 1800ms;
-}
-
-.shooting_star:nth-child(12) {
-    top: 35%;
-    left: -190px;
-    animation-delay: 3900ms;
-}
-
-.shooting_star:nth-child(13) {
-    top: 55%;
-    left: -140px;
-    animation-delay: 6500ms;
-}
-
-.shooting_star:nth-child(14) {
-    top: 75%;
-    left: -210px;
-    animation-delay: 800ms;
-}
-
-.shooting_star:nth-child(15) {
-    top: 85%;
-    left: -160px;
-    animation-delay: 5200ms;
-}
-
-
+/* --- Game Container --- */
 .container {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     display: inline-block;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    z-index: 3;
+    z-index: 5;
+    position: relative;
 }
 
+/* --- Rest of the styles --- */
 input[type="text"], input[type="number"] {
     padding: 10px;
     font-size: 16px;
