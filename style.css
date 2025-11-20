@@ -2,13 +2,25 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    /* The space background */
-    background: #000 url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
     height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url(https://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index: 0;
 }
 
 @keyframes move-twink-back {
@@ -26,9 +38,71 @@ body {
   height:100%;
   display:block;
   background:transparent url(https://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
-  z-index: 1; /* Sits on top of the static stars */
+  z-index: 1;
   animation:move-twink-back 200s linear infinite;
 }
+
+/* Shooting Star CSS */
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.shooting_star {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+    animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+}
+
+@keyframes tail {
+    0% { width: 0; }
+    30% { width: 100px; }
+    100% { width: 0; }
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(400px); }
+}
+
+.shooting_star:nth-child(1) {
+    top: 10%;
+    left: -200px;
+    animation-delay: 2999ms;
+}
+
+.shooting_star:nth-child(2) {
+    top: 30%;
+    left: -150px;
+    animation-delay: 4321ms;
+}
+
+.shooting_star:nth-child(3) {
+    top: 50%;
+    left: -100px;
+    animation-delay: 1234ms;
+}
+
+.shooting_star:nth-child(4) {
+    top: 70%;
+    left: -250px;
+    animation-delay: 5678ms;
+}
+
+.shooting_star:nth-child(5) {
+    top: 90%;
+    left: -120px;
+    animation-delay: 987ms;
+}
+
 
 .container {
     background-color: rgba(255, 255, 255, 0.9);
@@ -36,7 +110,7 @@ body {
     border-radius: 10px;
     display: inline-block;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    z-index: 2; /* Sits on top of the background effects */
+    z-index: 3;
 }
 
 input[type="text"], input[type="number"] {
