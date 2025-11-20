@@ -1,19 +1,54 @@
 body {
-    /* Please replace the URL below with the URL of the Ahiru no Pekkle image you want to use. */
-    background-image: url('https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FnwHah_dfz_E0pPbircsx9lAPt0MkBW-UkVAPJivVjMspPzP2DlcA3pyK8IOQVeYdRnbII2aGq1nKnc0xjuyHKA.webp&type=a340');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #f0f0f0;
 }
 
-h1 {
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
     color: white;
-    text-shadow: 2px 2px 4px #000000;
-    font-family: sans-serif;
-    font-size: 5em;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#feedback {
+
+    font-size: 18px;
+
+    margin-top: 20px;
+
+    min-height: 25px;
+
+}
+
+
+
+#game-buttons button {
+
+    margin: 10px;
+
 }
